@@ -29,7 +29,8 @@ const SignUp = () => {
       alert("비밀번호를 8자 이상 입력해주세요!");
     } else {
       const res = await axios.post("/user/login", form);
-      if (res === 0) {
+      // console.log(res.data);
+      if (res.data === 0) {
         if (window.confirm("회원 가입을 진행하시겠습니까?")) {
           // console.log(form);
           await axios.post("/user/insert", form);

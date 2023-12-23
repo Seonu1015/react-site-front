@@ -1,34 +1,31 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
+import StartPage from "./StartPage";
+
 import SignUp from "./user/SignUp";
 import MainPage from "./main/MainPage";
-import { Col, Row, Stack } from "react-bootstrap";
-import Sidebar from "./main/Sidebar";
+
+import UpdateLink from "./link/UpdateLink";
+import UpdateUser from "./user/UpdateUser";
 
 const RouterPage = () => {
   return (
     <Routes>
       {sessionStorage.getItem("email") ? (
-        <Route
-          path="/"
-          element={
-            <Row>
-              <Col xs={3}>
-                <Sidebar />
-              </Col>
-              <Col>
-                <MainPage />
-              </Col>
-            </Row>
-          }
-        />
+        <Route path="/" element={<HomePage />}>
+          <Route path="" element={<MainPage />} />
+          <Route path="/user/update" element={<UpdateUser />} />
+        </Route>
       ) : (
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<StartPage />} />
       )}
 
-      {/* user */}
+      {/* USER */}
       <Route path="/join" element={<SignUp />} />
+
+      {/* LINK */}
+      <Route path="/link/update" element={<UpdateLink />} />
     </Routes>
   );
 };
