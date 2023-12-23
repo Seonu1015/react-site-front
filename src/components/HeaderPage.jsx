@@ -15,7 +15,12 @@ const HeaderPage = () => {
     <Navbar fixed="top" style={{ backgroundColor: "#ffffff" }}>
       <Container fluid>
         <Navbar.Brand href="/">
-          <img src="./logo192.png" alt="logo" width="30px" className="ms-3" />
+          <img
+            src={process.env.PUBLIC_URL + "/logo192.png"}
+            alt="logo"
+            width="40px"
+            className="ms-3"
+          />
         </Navbar.Brand>
         <Nav
           className="me-auto my-2 my-lg-0"
