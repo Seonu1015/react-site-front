@@ -86,28 +86,6 @@ const SignUp = () => {
               회원가입
             </Button>
           </form>
-          <Row className="mb-5">
-            <Col>
-              <Button
-                className="w-100 d-flex justify-content-center align-items-center"
-                variant="outline-dark"
-                size="lg"
-              >
-                <FcGoogle className="me-3" />
-                Sign Up with Google
-              </Button>
-            </Col>
-            <Col>
-              <Button
-                className="w-100 d-flex justify-content-center align-items-center"
-                variant="outline-dark"
-                size="lg"
-              >
-                <FaGithub className="me-3" />
-                Sign Up with Github
-              </Button>
-            </Col>
-          </Row>
         </Col>
       </Row>
     </>

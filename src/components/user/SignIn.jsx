@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import GoogleLogin from "./GoogleLogin";
 
 const SignIn = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const { email, password } = form;
+  const { email } = form;
 
   const onChange = (e) => {
     setForm({
@@ -62,8 +63,6 @@ const SignIn = () => {
           />
         </FloatingLabel>
         <div className="text-end pe-2 mb-3">
-          <a href="/join">Forgot password?</a>
-          <br />
           <a href="/join">I'm a new user! Sign Up</a>
         </div>
         <Button
@@ -77,14 +76,7 @@ const SignIn = () => {
       </form>
       <Row className="mb-3">
         <Col>
-          <Button
-            className="w-100 d-flex justify-content-center align-items-center"
-            variant="outline-dark"
-            size="lg"
-          >
-            <FcGoogle className="me-2" />
-            Google
-          </Button>
+          <GoogleLogin />
         </Col>
         <Col>
           <Button

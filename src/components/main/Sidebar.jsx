@@ -60,11 +60,6 @@ const Sidebar = () => {
                     폴더 관리
                   </Link>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Link className="catlink" to="/user/update">
-                    정보 수정
-                  </Link>
-                </ListGroup.Item>
               </ListGroup>
             ) : (
               <div style={{ color: "gray" }}>로그인을 해주세요!</div>

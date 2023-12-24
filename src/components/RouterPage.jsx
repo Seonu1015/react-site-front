@@ -7,7 +7,6 @@ import SignUp from "./user/SignUp";
 import MainPage from "./main/MainPage";
 
 import UpdateLink from "./link/UpdateLink";
-import UpdateUser from "./user/UpdateUser";
 import FilterPage from "./link/FilterPage";
 
 const RouterPage = () => {
@@ -22,7 +21,6 @@ const RouterPage = () => {
         ) : (
           <Route path="" element={<StartPage />} />
         )}
-        <Route path="/user/update" element={<UpdateUser />} />
       </Route>
 
       {/* USER */}
