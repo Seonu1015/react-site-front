@@ -8,18 +8,22 @@ import MainPage from "./main/MainPage";
 
 import UpdateLink from "./link/UpdateLink";
 import UpdateUser from "./user/UpdateUser";
+import FilterPage from "./link/FilterPage";
 
 const RouterPage = () => {
   return (
     <Routes>
-      {sessionStorage.getItem("email") ? (
-        <Route path="/" element={<HomePage />}>
-          <Route path="" element={<MainPage />} />
-          <Route path="/user/update" element={<UpdateUser />} />
-        </Route>
-      ) : (
-        <Route path="/" element={<StartPage />} />
-      )}
+      <Route path="/" element={<HomePage />}>
+        {sessionStorage.getItem("email") ? (
+          <>
+            <Route path="" element={<MainPage />} />
+            <Route path="/flt/*" element={<FilterPage />} />
+          </>
+        ) : (
+          <Route path="" element={<StartPage />} />
+        )}
+        <Route path="/user/update" element={<UpdateUser />} />
+      </Route>
 
       {/* USER */}
       <Route path="/join" element={<SignUp />} />

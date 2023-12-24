@@ -10,7 +10,7 @@ const MainPage = () => {
 
   const getList = async () => {
     setLoadiing(true);
-    const res = await axios("/link/list", {
+    const res = await axios("/link/list_all", {
       params: {
         user: sessionStorage.getItem("email"),
       },
@@ -26,17 +26,19 @@ const MainPage = () => {
 
   if (loading)
     return (
-      <div className="mt-5 text-center">
+      <div className="mt-5 text-center" style={{ paddingTop: "4rem" }}>
         <Spinner animation="grow" size="sm" /> <Spinner animation="grow" />
       </div>
     );
 
   return (
     <>
-      <Container className="mt-3">
+      <Container style={{ paddingTop: "4rem" }}>
         <Accordion className="shadow-sm">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>Add Link</Accordion.Header>
+            <Accordion.Header>
+              <strong>Add Link</strong>
+            </Accordion.Header>
             <Accordion.Body>
               <InsertLink buttonText="추가" list={list} />
             </Accordion.Body>

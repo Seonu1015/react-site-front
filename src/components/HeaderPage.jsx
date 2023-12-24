@@ -27,7 +27,9 @@ const HeaderPage = () => {
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
-          <Nav.Link href="/">Linket</Nav.Link>
+          <Nav.Link href="/" style={{ fontSize: "2rem" }}>
+            Linket
+          </Nav.Link>
         </Nav>
         {sessionStorage.getItem("email") ? (
           <Dropdown>
@@ -36,7 +38,6 @@ const HeaderPage = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">회원정보</Dropdown.Item>
               <Dropdown.Item onClick={onLogout}>로그아웃</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

@@ -1,23 +1,51 @@
-import React from "react";
-import { Accordion, Container, ListGroup, NavLink } from "react-bootstrap";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Accordion, Container, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+  const [catList, setCatList] = useState([]);
+
+  const getList = async () => {
+    const res = await axios("/cat/list", {
+      params: { user: sessionStorage.getItem("email") },
+    });
+    // console.log(res.data);
+    setCatList(res.data);
+  };
+
+  useEffect(() => {
+    if (sessionStorage.getItem("email")) {
+      getList();
+    }
+  }, []);
+
   return (
-    <Container className="mt-3" style={{ height: "68vh" }}>
-      <Accordion defaultActiveKey={["0"]} alwaysOpen flush>
+    <Container className="mt-3" style={{ height: "68vh", paddingTop: "10vh" }}>
+      <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            <div style={{ fontWeight: "bold" }}>My Link</div>
+            <div style={{ fontWeight: "bold" }}>Link</div>
           </Accordion.Header>
           <Accordion.Body>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <NavLink href="/">ALL</NavLink>
-              </ListGroup.Item>
-              <ListGroup.Item>카테고리1</ListGroup.Item>
-              <ListGroup.Item>카테고리2</ListGroup.Item>
-              <ListGroup.Item>카테고리3</ListGroup.Item>
-            </ListGroup>
+            {sessionStorage.getItem("email") ? (
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Link className="catlink" to="">
+                    ALL
+                  </Link>
+                </ListGroup.Item>
+                {catList.map((l) => (
+                  <ListGroup.Item key={l.categoryId}>
+                    <Link className="catlink" to={`flt/${l.categoryId}`}>
+                      {l.categoryName}
+                    </Link>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            ) : (
+              <div style={{ color: "gray" }}>로그인을 해주세요!</div>
+            )}
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
@@ -25,12 +53,22 @@ const Sidebar = () => {
             <div style={{ fontWeight: "bold" }}>Setting</div>
           </Accordion.Header>
           <Accordion.Body>
-            <ListGroup variant="flush">
-              <ListGroup.Item>폴더 관리</ListGroup.Item>
-              <ListGroup.Item>
-                <NavLink href="/user/update">정보 수정</NavLink>
-              </ListGroup.Item>
-            </ListGroup>
+            {sessionStorage.getItem("email") ? (
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Link className="catlink" to="">
+                    폴더 관리
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Link className="catlink" to="/user/update">
+                    정보 수정
+                  </Link>
+                </ListGroup.Item>
+              </ListGroup>
+            ) : (
+              <div style={{ color: "gray" }}>로그인을 해주세요!</div>
+            )}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
