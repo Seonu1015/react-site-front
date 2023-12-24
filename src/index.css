@@ -8,3 +8,13 @@
 * {
   font-family: 'NEXON Lv1 Gothic OTF';
 }
+
+.catlink {
+  text-decoration: none;
+  color: gray;
+}
+.catlink:hover {
+  text-decoration: none;
+  color: #292929;
+  font-weight: bold;
+}
