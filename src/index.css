@@ -9,6 +9,14 @@
   font-family: 'NEXON Lv1 Gothic OTF';
 }
 
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .catlink {
   text-decoration: none;
   color: gray;

@@ -8,6 +8,7 @@ import MainPage from "./main/MainPage";
 
 import UpdateLink from "./link/UpdateLink";
 import FilterPage from "./link/FilterPage";
+import ListPage from "./category/ListPage";
 
 const RouterPage = () => {
   return (
@@ -17,6 +18,7 @@ const RouterPage = () => {
           <>
             <Route path="" element={<MainPage />} />
             <Route path="/flt/*" element={<FilterPage />} />
+            <Route path="/cat" element={<ListPage />} />
           </>
         ) : (
           <Route path="" element={<StartPage />} />
