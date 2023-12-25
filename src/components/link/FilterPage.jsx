@@ -23,7 +23,7 @@ const FilterPage = () => {
     });
     // console.log(res.data);
     setList(res.data);
-    console.log(list[0]);
+    // console.log(list[0]);
   };
 
   const onDeleteLink = async (linkId, linkName) => {

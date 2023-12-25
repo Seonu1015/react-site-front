@@ -29,15 +29,19 @@ const ListPage = ({ list }) => {
           <Col key={l.linkId} md={6}>
             <Card border="light" className="shadow-sm mb-3">
               <Card.Body>
-                <Stack direction="horizontal" gap={2}>
-                  {l.linkName}
-                  <a href={l.link} target="_blank" rel="noreferrer">
-                    <HiExternalLink
-                      className="d-flex align-items-center"
-                      style={{ fontSize: "1.2rem", color: "steelblue" }}
-                    />
-                  </a>
-                  <div className="ms-auto">
+                <Row>
+                  <Col>
+                    <Stack direction="horizontal" gap={1}>
+                      <div className="ellipsis">{l.linkName}</div>
+                      <a href={l.link} target="_blank" rel="noreferrer">
+                        <HiExternalLink
+                          className="d-flex align-items-center"
+                          style={{ fontSize: "1.2rem", color: "steelblue" }}
+                        />
+                      </a>
+                    </Stack>
+                  </Col>
+                  <Col md={3} className="text-end">
                     <UpdateLink linkid={l.linkId} />
                     <HiMinusCircle
                       style={{
@@ -47,8 +51,8 @@ const ListPage = ({ list }) => {
                       }}
                       onClick={() => onDeleteLink(l.linkId, l.linkName)}
                     />
-                  </div>
-                </Stack>
+                  </Col>
+                </Row>
                 <div style={{ color: "gray", fontSize: "0.8rem" }}>
                   <FaRegFolderOpen /> {l.categoryName}
                 </div>

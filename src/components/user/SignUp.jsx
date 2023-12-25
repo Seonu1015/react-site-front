@@ -2,9 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
 
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-
 const SignUp = () => {
   const [form, setForm] = useState({
     email: "",
