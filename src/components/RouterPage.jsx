@@ -1,14 +1,15 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
 import HomePage from "./HomePage";
 import StartPage from "./StartPage";
-
 import SignUp from "./user/SignUp";
-import MainPage from "./main/MainPage";
 
+import MainPage from "./main/MainPage";
 import UpdateLink from "./link/UpdateLink";
 import FilterPage from "./link/FilterPage";
-import ListPage from "./category/ListPage";
+import CatListPage from "./manage/CatListPage";
+import LinkListPage from "./manage/LinkListPage";
 
 const RouterPage = () => {
   return (
@@ -18,7 +19,8 @@ const RouterPage = () => {
           <>
             <Route path="" element={<MainPage />} />
             <Route path="/flt/*" element={<FilterPage />} />
-            <Route path="/cat" element={<ListPage />} />
+            <Route path="/mc" element={<CatListPage />} />
+            <Route path="/ml" element={<LinkListPage />} />
           </>
         ) : (
           <Route path="" element={<StartPage />} />

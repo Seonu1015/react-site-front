@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
-import InsertCategory from "../category/InsertCategory";
+import InsertCategory from "../manage/InsertCategory";
 
 const InsertLink = () => {
   const [catList, setCatList] = useState([]);
@@ -79,7 +79,7 @@ const InsertLink = () => {
           </Form.Select>
         </Col>
         <Col className="d-flex justify-content-center align-items-center">
-          <InsertCategory />
+          <InsertCategory getList={getList} />
         </Col>
       </Form.Group>
 

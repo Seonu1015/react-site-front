@@ -56,8 +56,13 @@ const Sidebar = () => {
             {sessionStorage.getItem("email") ? (
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <Link className="catlink" to="cat">
-                    폴더 관리
+                  <Link className="catlink" to="ml">
+                    링크 관리
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Link className="catlink" to="mc">
+                    카테고리 관리
                   </Link>
                 </ListGroup.Item>
               </ListGroup>

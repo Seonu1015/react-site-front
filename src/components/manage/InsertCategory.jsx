@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { CgAddR } from "react-icons/cg";
+import { IoMdAdd } from "react-icons/io";
 
-const InsertCategory = () => {
+const InsertCategory = ({ getList }) => {
   const [categoryName, setCategoryName] = useState("");
 
   const [show, setShow] = useState(false);
@@ -20,13 +20,13 @@ const InsertCategory = () => {
     alert("[ " + categoryName + " ] 카테고리 추가 완료!");
     setCategoryName("");
     handleClose();
-    window.location.href = "/";
+    getList();
   };
 
   return (
     <>
-      <CgAddR
-        style={{ fontSize: "1.8rem", color: "lightgrey", cursor: "pointer" }}
+      <IoMdAdd
+        style={{ fontSize: "1.8rem", color: "gray", cursor: "pointer" }}
         onClick={handleShow}
       />
 
